@@ -1,7 +1,8 @@
+<p class="demo">架空のセミナーによるデザイン制作例です</p>
 <header>
   <div class="wrap">
     <a class="brand" href="#top">おだやかAI教室</a>
-    <a class="tel-h" href="tel:0980000000"><small>お申し込み・ご相談</small>098-000-0000</a>
+    <a class="tel-h" href="#" data-link="tel"><small>お申し込み・ご相談</small>098-000-0000</a>
   </div>
 </header>
 
@@ -10,20 +11,62 @@
     <div class="wrap hero-grid">
       <div class="copy">
         <p class="sub">60歳からのAI活用セミナー｜那覇市・参加無料</p>
-        <h1><span>むずかしくない。</span><span>はなしかけるだけの、</span><span>AI。</span></h1>
-        <p class="lead">スマホを持っていれば、はじめての方でも大丈夫です。講師がそばで、ひとつずつお教えします。</p>
+        <h1><span>むずかしくない。</span><span><em class="mark">はなしかける</em>だけの、</span><span>AI。</span></h1>
+        <p class="lead">スマホが苦手な方も大丈夫です。貸し出し用もあります。講師がそばで、ひとつずつお教えします。</p>
         <ul class="badges">
           <li>参加費 無料</li>
           <li>全3回</li>
           <li>各回12名まで</li>
         </ul>
         <div class="actions">
-          <a class="btn primary" href="tel:0980000000">電話で申し込む　<span class="num">098-000-0000</span></a>
+          <a class="btn primary" href="#" data-link="tel">電話で申し込む　<span class="num">098-000-0000</span></a>
           <a class="btn" href="#" data-link="line">LINEで申し込む</a>
         </div>
         <p class="note">受付時間 9:00〜17:00（日曜を除く）</p>
+        <p class="to-demo"><a href="#demo">話しかける様子を見る ↓</a></p>
       </div>
+      <div class="hero-visual">
       <img class="hero-img" src="images/hero.webp" width="1536" height="1024" alt="公民館の教室で、タブレットを前に笑顔の参加者と、横で教える講師" fetchpriority="high" decoding="async">
+        <span class="bubble b1" aria-hidden="true">今日の天気は？</span>
+        <span class="bubble b2" aria-hidden="true">晴れのち くもりです</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec demo-sec" id="demo">
+    <div class="wrap demo-grid">
+      <div class="demo-head">
+        <p class="label">動きで見る</p>
+        <h2>ボタンを押して、<br>話すだけ。</h2>
+        <ol class="how">
+          <li data-how="0"><b>1</b>マイクを押す</li>
+          <li data-how="1"><b>2</b>話しかける</li>
+          <li data-how="2"><b>3</b>返事を読む</li>
+        </ol>
+        <div class="scenes" role="group" aria-label="見たい場面を選ぶ">
+          <button type="button" data-scene="0" aria-pressed="true">晩ごはん</button>
+          <button type="button" data-scene="1" aria-pressed="false">お礼状</button>
+          <button type="button" data-scene="2" aria-pressed="false">あやしい連絡</button>
+        </div>
+        <button type="button" class="play">一時停止</button>
+        <p class="note">※画面はイメージです。AIの答えは間違うこともあります。大事なことは、人にも確認しましょう。</p>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <p class="ph-title">AIとおはなし</p>
+        <div class="chat">
+          <p class="msg me"><span></span></p>
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="msg ai"></div>
+        </div>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M8.5 21h7"/></svg></div>
+        <p class="status">マイクを押します</p>
+      </div>
+      <ul class="sr">
+        <li>晩ごはん：「冷蔵庫に卵と豆腐があります。晩ごはんは何がいい？」と話すと、「豆腐の卵とじはいかがですか。10分ほどで作れます」と返事が出ます。</li>
+        <li>お礼状：「お野菜をもらったお礼を書きたい」と話すと、お礼の文の下書きが出ます。</li>
+        <li>あやしい連絡：「荷物の不在通知が届いたけれど本物？」と聞くと、リンクを開かず、公式の窓口や家族に確認するようすすめます。</li>
+      </ul>
     </div>
   </section>
 
@@ -61,9 +104,9 @@
       <p class="label">内容と日程</p>
       <h2>全3回、1回90分です。</h2>
       <ol class="steps">
-        <li><span class="no">第1回</span><div><b>12月5日（土） <span class="t">10:00〜11:30</span></b><p>AIとおしゃべりしてみる。スマホで話しかける練習をします。</p></div></li>
-        <li><span class="no">第2回</span><div><b>12月12日（土） <span class="t">10:00〜11:30</span></b><p>調べものと写真の整理。ご自分の「知りたいこと」で試します。</p></div></li>
-        <li><span class="no">第3回</span><div><b>12月19日（土） <span class="t">10:00〜11:30</span></b><p>詐欺メッセージの見分け方と、AIを使うときの注意点を学びます。</p></div></li>
+        <li><span class="no">第1回<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M24 6a6 6 0 0 0-6 6v12a6 6 0 0 0 12 0V12a6 6 0 0 0-6-6zM11 23a13 13 0 0 0 26 0M24 36v7M17 43h14"/></svg></span><div><b>12月5日（土） <span class="t">10:00〜11:30</span></b><p>AIとおしゃべりしてみる。スマホで話しかける練習をします。</p></div></li>
+        <li><span class="no">第2回<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M21 8a13 13 0 1 0 0 26a13 13 0 1 0 0-26zM31 31l11 11"/></svg></span><div><b>12月12日（土） <span class="t">10:00〜11:30</span></b><p>調べものと写真の整理。ご自分の「知りたいこと」で試します。</p></div></li>
+        <li><span class="no">第3回<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M24 5l16 6v12c0 10-7 17-16 20C15 40 8 33 8 23V11zM16 24l6 6 11-12"/></svg></span><div><b>12月19日（土） <span class="t">10:00〜11:30</span></b><p>詐欺メッセージの見分け方と、AIを使うときの注意点を学びます。</p></div></li>
       </ol>
       <p class="note">※1回だけのご参加もできます。日程・内容はすべて架空です。</p>
     </div>
@@ -147,7 +190,7 @@
       <h2>お電話でも、LINEでも。</h2>
       <p class="lead">お名前と、ご希望の回をお知らせください。お電話は、ゆっくりお話しします。</p>
       <div class="actions">
-        <a class="btn primary big" href="tel:0980000000">電話で申し込む　<span class="num">098-000-0000</span></a>
+        <a class="btn primary big" href="#" data-link="tel">電話で申し込む　<span class="num">098-000-0000</span></a>
         <a class="btn big" href="#" data-link="line">LINEで申し込む</a>
       </div>
       <p class="note">受付時間 9:00〜17:00（日曜を除く）</p>
@@ -162,6 +205,6 @@
 </footer>
 
 <nav class="bar" aria-label="お申し込み">
-  <a class="main" href="tel:0980000000">電話で申し込む</a>
+  <a class="main" href="#" data-link="tel">電話で申し込む</a>
   <a href="#" data-link="line">LINE</a>
 </nav>

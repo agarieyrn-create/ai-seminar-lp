@@ -8,7 +8,7 @@ h1,h2,h3{text-wrap:balance}
 
 header{background:var(--paper);border-bottom:2px solid var(--ink);position:relative;z-index:5}
 header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:84px;gap:16px}
-.brand{font-weight:900;font-size:24px;text-decoration:none;letter-spacing:.04em}
+.brand{white-space:nowrap;font-weight:900;font-size:24px;text-decoration:none;letter-spacing:.04em}
 .tel-h{text-decoration:none;font-weight:900;font-size:30px;line-height:1.2;text-align:right;white-space:nowrap}
 .tel-h small{display:block;font-size:14px;font-weight:500;color:var(--mute)}
 
@@ -67,6 +67,7 @@ h2{font-size:clamp(30px,4vw,44px);line-height:1.5;font-weight:900}
 .cta{background:var(--cta)}
 .cta .desk{margin-top:56px;width:100%;max-width:720px;aspect-ratio:3/2;object-fit:cover}
 
+.demo{background:var(--ink);color:#fff;text-align:center;font-size:14px;line-height:1.6;padding:6px 12px}
 footer{padding:40px 0 56px;font-size:15px;color:var(--mute)}
 footer .back{margin-top:10px}
 footer .back a{text-decoration:underline;text-underline-offset:3px}
@@ -81,7 +82,7 @@ footer .back a{text-decoration:underline;text-underline-offset:3px}
   .tel-h{font-size:21px}
   .tel-h small{font-size:12px}
   .hero{padding:40px 0 48px}
-  .hero h1{font-size:32px}
+  .hero h1{font-size:min(32px,calc((100vw - 48px) / 10))}
   .btn .num{display:block}
   .steps b{font-size:22px}
   .steps b .t{margin-left:0;display:block}
@@ -97,13 +98,120 @@ footer .back a{text-decoration:underline;text-underline-offset:3px}
   .bar a.main{background:var(--accent);color:#fff}
   .bar a+a{border-left:2px solid var(--ink)}
 }
+@media(max-width:360px){
+  header .wrap{gap:8px}
+  .brand{font-size:16px}
+  .tel-h{font-size:18px}
+}
+
+/* 動き：ゆっくり・控えめ。端末の「動きを減らす」設定では止める */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mark{font-style:normal;background:linear-gradient(transparent 68%,#f2d98a 68% 92%,transparent 92%) no-repeat;background-size:100% 100%}
+.to-demo{margin-top:14px;font-size:18px;font-weight:700}
+.to-demo a{color:var(--accent);text-underline-offset:5px}
+.hero-visual{position:relative;min-width:0}
+.bubble{position:absolute;background:#fff;color:#222;font-size:17px;font-weight:700;line-height:1.5;padding:10px 18px;border-radius:24px;box-shadow:0 6px 20px rgba(0,0,0,.16)}
+.b1{left:12px;top:-18px;border-bottom-left-radius:4px}
+.b2{right:12px;bottom:-18px;background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+
+.demo-sec{background:var(--cta)}
+.demo-grid{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:center}
+.how{list-style:none;margin-top:28px;display:grid;gap:10px}
+.how li{display:flex;align-items:center;gap:14px;font-weight:700;padding:8px 14px;border:2px solid transparent;transition:background .5s,border-color .5s}
+.how b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;flex:none}
+.how li.on{background:var(--paper);border-color:var(--accent)}
+.scenes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.scenes button,.play{font:inherit;font-size:18px;font-weight:700;line-height:1.4;min-height:56px;padding:12px 18px;border:2px solid var(--accent);background:var(--paper);color:var(--accent);cursor:pointer}
+.scenes button[aria-pressed=true]{background:var(--accent);color:#fff}
+.play{margin-top:12px;border-color:var(--ink);color:var(--ink)}
+.demo-head .note{font-size:16px}
+.phone{width:100%;max-width:360px;margin:0 auto;height:610px;display:flex;flex-direction:column;align-items:center;background:#fff;color:#222;border:10px solid #2a2622;border-radius:44px;padding:14px 14px 10px;box-shadow:0 24px 50px rgba(0,0,0,.18)}
+.ph-title{font-size:16px;font-weight:700;color:#555;border-bottom:1px solid #ddd;width:100%;text-align:center;padding-bottom:6px}
+.chat{flex:1;width:100%;display:flex;flex-direction:column;gap:12px;padding-top:14px;overflow:hidden}
+.msg{font-size:17px;line-height:1.7;padding:10px 14px;border-radius:18px;max-width:92%}
+.me{align-self:flex-end;background:#e3efd9;border-bottom-right-radius:4px}
+.ai{align-self:flex-start;background:#f2f0ec;border-bottom-left-radius:4px}
+.ai p{transition:opacity .6s,transform .6s}
+.ai p.wait{opacity:0;transform:translateY(8px)}
+.phone .off{display:none}
+.dots{display:flex;gap:6px;padding:8px 14px}
+.dots i{width:10px;height:10px;border-radius:50%;background:#999;animation:dot 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+.wave{display:flex;align-items:center;gap:5px;height:34px;visibility:hidden}
+.wave i{width:6px;height:8px;border-radius:3px;background:var(--accent);animation:wave 1s ease-in-out infinite}
+.wave i:nth-child(2n){animation-delay:.25s}.wave i:nth-child(3n){animation-delay:.5s}
+.listening .wave{visibility:visible}
+.mic{width:68px;height:68px;border-radius:50%;background:var(--accent);display:grid;place-items:center;flex:none;margin-top:4px}
+.mic svg{width:34px;height:34px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.pressing .mic,.listening .mic{animation:ring 1.4s ease-out infinite}
+.status{font-size:15px;font-weight:700;color:#555;margin-top:4px}
+.paused .phone *{animation-play-state:paused!important}
+
+.ico{display:block;width:48px;height:48px;margin-top:8px;fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* スクロールで現れる（JavaScriptが動くときだけ隠す） */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.rv .ico path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease .4s}
+.rv.in .ico path{stroke-dashoffset:0}
+
+@media(prefers-reduced-motion:no-preference){
+  .hero .copy>*{animation:up .9s ease both}
+  .hero .copy>:nth-child(2){animation-delay:.12s}
+  .hero .copy>:nth-child(3){animation-delay:.24s}
+  .hero .copy>:nth-child(n+4){animation-delay:.36s}
+  .mark{animation:draw 1.2s ease 1s both}
+  .b1{animation:up .8s ease 1.4s both}
+  .b2{animation:up .8s ease 2.6s both}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+
+  .phone *,.how li{animation:none!important;transition:none!important}
+}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+@keyframes draw{from{background-size:0 100%}}
+@keyframes dot{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-5px)}}
+@keyframes wave{50%{height:30px}}
+@keyframes ring{from{box-shadow:0 0 0 0 rgba(47,93,58,.5)}to{box-shadow:0 0 0 20px rgba(47,93,58,0)}}
+
+@media(max-width:820px){
+  .demo-grid{grid-template-columns:1fr;gap:32px}
+  .bubble{font-size:15px;padding:8px 14px}
+  .scenes button{flex:1 1 40%}
+  .play{width:100%}
+}
+.demo-sec:not(.ready) :is(.scenes,.play,.how,.phone){display:none}
+.demo-sec:not(.ready) .sr{position:static;width:auto;height:auto;clip-path:none;white-space:normal;overflow:visible;padding-left:1.2em;grid-column:1/-1}
+@media(max-width:820px){
+  /* スマホでは、場面ボタンのすぐ下に画面を置く */
+  .demo-grid{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .demo-head{display:contents}
+  .demo-head .label{order:1}
+  .demo-head h2{order:2}
+  .scenes{order:3;margin-top:20px;flex-wrap:nowrap;gap:6px}
+  .scenes button{flex:1 1 auto;font-size:16px;padding:8px 4px}
+  .phone{order:4;height:520px;margin:14px auto 0}
+  .msg{font-size:16px;line-height:1.6}
+  .play{order:5}
+  .how{order:6}
+  .demo-head .note{order:7}
+  .demo-grid>.sr{order:8}
+  .steps .no{display:flex;align-items:center;gap:12px}
+  .ico{margin-top:0;width:40px;height:40px}
+}
+@media(max-width:360px){
+  .phone{height:550px;border-width:7px;padding:10px 8px}
+  .msg{font-size:15px;padding:8px 10px}
+  .mic{width:56px;height:56px}
+}
 
 /* 案A：紙のようなやわらかい配色・明朝見出し・左右2分割 */
 :root{--ink:#2a2622;--paper:#fbf7ee;--tint:#f1ead9;--hero:#fbf7ee;--cta:#efe6d0;--mute:#6b6459;--sub:#4a443b;--line:#d8cfba;--accent:#2f5d3a;--gutter:24px}
 h1,h2,h3,.brand,.name{font-family:"Noto Serif JP",serif}
 header{border-bottom:1px solid var(--ink)}
 @media(min-width:821px){
-  .hero-grid{grid-template-columns:1.35fr 1fr;align-items:center;gap:48px}
+  .hero-grid{grid-template-columns:1fr 1fr;align-items:center;gap:48px}
   .hero h1{font-size:clamp(36px,3.8vw,54px)}
-  .hero-img{aspect-ratio:4/5}
+  .hero-img{aspect-ratio:3/2}
 }

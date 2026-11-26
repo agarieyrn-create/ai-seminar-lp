@@ -1,5 +1,5 @@
 """使い方: python _src/build.py a|b|final b   （final のときは選んだ案を index.html / style.css に出力）"""
-import os, sys, shutil
+import os, sys
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S = os.path.join(R, '_src')
 rd = lambda n: open(os.path.join(S, n), encoding='utf-8').read()
@@ -14,7 +14,7 @@ def head(css, theme, final):
         og = f'''<link rel="canonical" href="{URL}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="はじめてのAI教室｜60歳からのAI活用セミナー（架空）">
+<meta property="og:title" content="おだやかAI教室｜60歳からのAI活用セミナー（架空）">
 <meta property="og:description" content="{DESC}">
 <meta property="og:url" content="{URL}">
 <meta property="og:image" content="{URL}images/ogp.jpg">
@@ -38,15 +38,14 @@ def head(css, theme, final):
 '''
 
 
-tail = '\n<script src="links.js" defer></script>\n</body>\n</html>\n'
+tail = '\n<script src="links.js" defer></script>\n<script src="motion.js" defer></script>\n</body>\n</html>\n'
 body = rd('body.html')
-shutil.copy(os.path.join(R, '..', '_motion', 'links.js'), os.path.join(R, 'links.js'))
 mode = sys.argv[1]
 if mode in ('a', 'b'):
-    open(os.path.join(R, f'style-{mode}.css'), 'w', encoding='utf-8').write(rd('base.css') + '\n' + rd(f'theme_{mode}.css'))
+    open(os.path.join(R, f'style-{mode}.css'), 'w', encoding='utf-8').write(rd('base.css') + '\n' + rd('motion.css') + '\n' + rd(f'theme_{mode}.css'))
     open(os.path.join(R, f'preview-{mode}.html'), 'w', encoding='utf-8').write(head(f'style-{mode}.css', mode, False) + body + tail)
 else:
     t = sys.argv[2]
-    open(os.path.join(R, 'style.css'), 'w', encoding='utf-8').write(rd('base.css') + '\n' + rd(f'theme_{t}.css'))
+    open(os.path.join(R, 'style.css'), 'w', encoding='utf-8').write(rd('base.css') + '\n' + rd('motion.css') + '\n' + rd(f'theme_{t}.css'))
     open(os.path.join(R, 'index.html'), 'w', encoding='utf-8').write(head('style.css', t, True) + body + tail)
 print('built', mode)

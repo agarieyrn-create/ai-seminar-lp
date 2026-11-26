@@ -8,7 +8,7 @@ h1,h2,h3{text-wrap:balance}
 
 header{background:var(--paper);border-bottom:2px solid var(--ink);position:relative;z-index:5}
 header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:84px;gap:16px}
-.brand{font-weight:900;font-size:24px;text-decoration:none;letter-spacing:.04em}
+.brand{white-space:nowrap;font-weight:900;font-size:24px;text-decoration:none;letter-spacing:.04em}
 .tel-h{text-decoration:none;font-weight:900;font-size:30px;line-height:1.2;text-align:right;white-space:nowrap}
 .tel-h small{display:block;font-size:14px;font-weight:500;color:var(--mute)}
 
@@ -67,6 +67,7 @@ h2{font-size:clamp(30px,4vw,44px);line-height:1.5;font-weight:900}
 .cta{background:var(--cta)}
 .cta .desk{margin-top:56px;width:100%;max-width:720px;aspect-ratio:3/2;object-fit:cover}
 
+.demo{background:var(--ink);color:#fff;text-align:center;font-size:14px;line-height:1.6;padding:6px 12px}
 footer{padding:40px 0 56px;font-size:15px;color:var(--mute)}
 footer .back{margin-top:10px}
 footer .back a{text-decoration:underline;text-underline-offset:3px}
@@ -81,7 +82,7 @@ footer .back a{text-decoration:underline;text-underline-offset:3px}
   .tel-h{font-size:21px}
   .tel-h small{font-size:12px}
   .hero{padding:40px 0 48px}
-  .hero h1{font-size:32px}
+  .hero h1{font-size:min(32px,calc((100vw - 48px) / 10))}
   .btn .num{display:block}
   .steps b{font-size:22px}
   .steps b .t{margin-left:0;display:block}
@@ -96,4 +97,9 @@ footer .back a{text-decoration:underline;text-underline-offset:3px}
   .bar a{text-align:center;text-decoration:none;font-size:20px;font-weight:900;padding:18px 4px}
   .bar a.main{background:var(--accent);color:#fff}
   .bar a+a{border-left:2px solid var(--ink)}
+}
+@media(max-width:360px){
+  header .wrap{gap:8px}
+  .brand{font-size:16px}
+  .tel-h{font-size:18px}
 }
